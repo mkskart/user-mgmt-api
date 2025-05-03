@@ -93,10 +93,11 @@ def delete_user(user_id: int):
     with next(get_db()) as db:
         try:
             crud.delete_user(db, user_id)
-            return jsonify(f"User {user_id} deleted"), 204
+            return {"response" : f"User with id {user_id} deleted"}
         except LookupError as exc:
             abort(404, description=str(exc))
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
+    
