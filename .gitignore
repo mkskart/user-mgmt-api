@@ -1,0 +1,5 @@
+echo # ignore Docker volumes and Python cache > .gitignore
+echo pgdata/                             >> .gitignore
+echo __pycache__/                        >> .gitignore
+echo *.pyc                               >> .gitignore
+echo .env                                >> .gitignore

@@ -1,0 +1,31 @@
+services:
+  api:
+    build: .
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+      - JWT_SECRET=supersecretjwt
+      - ADMIN_USER=admin
+      - ADMIN_PASSWORD=admin123
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    networks:
+      - backend-net
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend-net
+
+networks:
+  backend-net:
+
+volumes:
+  pgdata:

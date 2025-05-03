@@ -1,0 +1,7 @@
+flask==3.0.2
+SQLAlchemy==2.0.29
+psycopg2-binary==2.9.9
+pydantic[email]==2.7.1
+loguru==0.7.2
+python-dotenv==1.0.1
+PyJWT==2.8.0
